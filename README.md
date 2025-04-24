@@ -8,6 +8,17 @@
 
 This project implements a Retrieval-Augmented Generation (RAG) system for academic research, using ChromaDB as the external vector database. The system helps researchers search, retrieve, and summarize academic papers based on natural language queries.
 
+## Features
+
+- **Semantic Search**: Find relevant papers based on natural language queries
+- **AI-Generated Insights**: Get summaries, comparisons, and research suggestions
+- **External Vector Database**: Uses ChromaDB for efficient vector storage and retrieval
+- **User-Friendly Interface**: Intuitive Streamlit interface for easy interaction
+
+## Requirements
+
+- Python 3.9+
+- OpenAI API key (optional, for enhanced response generation)
 
 ## Architecture
 
@@ -40,10 +51,41 @@ graph TD
     
     L -.-> O[arXiv API / Sample Data]
     G -.-> P[OpenAI API / Template Responses]
+```
+
+### Component Description
+
+1. **User Interface Layer**
+   - **Streamlit App**: Main frontend interface for user interaction
+   - **Query Processing**: Handles user search requests
+   - **Results Display**: Presents search results and AI responses
+   - **Settings Controls**: Allows customization of search parameters
+
+2. **RAG Engine Layer**
+   - **Query Embedding**: Converts user queries to vector embeddings
+   - **Vector Search**: Finds semantically similar documents
+   - **Response Generation**: Creates AI-generated insights from retrieved papers
+
+3. **Vector Database Layer**
+   - **ChromaDB**: External vector database for efficient similarity search
+   - **Document Embeddings**: Vector representations of academic papers
+   - **Metadata Storage**: Paper titles, authors, dates, and categories
+
+4. **Data Processing Layer**
+   - **Data Processor**: Pipeline for acquiring and processing papers
+   - **Document Acquisition**: Downloads papers from external sources
+   - **Text Preprocessing**: Cleans and formats paper content
+   - **Embedding Generation**: Creates vector embeddings for storage
+
+5. **External Dependencies**
+   - **arXiv API / Sample Data**: Source of academic papers
+   - **OpenAI API / Template Responses**: Optional AI response generation
+
+## Installation
 
 1. Clone this repository:
    ```
-   git clone https://github.com/deepakrajaR/literature-review-rag
+   git clone https://github.com/deepakrajaR/literature-review-assistant.git
    cd literature-review-assistant
    ```
 
@@ -80,15 +122,6 @@ graph TD
    - Click "Search" to get results
    - Explore the AI-generated response and relevant papers
 
-## Architecture
-
-This implementation follows a standard RAG architecture:
-
-1. **Data Collection**: Download academic papers from arXiv (or use sample data)
-2. **Vector Storage**: Store paper embeddings in ChromaDB
-3. **Query Processing**: Convert user queries to vectors and find similar papers
-4. **Response Generation**: Generate insights using retrieved papers
-
 ## Technologies Used
 
 - **ChromaDB**: Open-source vector database for storing and retrieving embeddings
@@ -110,19 +143,4 @@ This implementation follows a standard RAG architecture:
 ## Customization
 
 - **Paper Sources**: You can extend the `download_arxiv_dataset` function to include other sources
-- **Response Types**: You can add new response types in the `generate_response` function
-- **UI Customization**: Modify the Streamlit app to change the user interface
-
-## Advantages of Using ChromaDB
-
-- **Open Source**: Fully open-source and free to use
-- **Local Operation**: Can run entirely on your local machine
-- **Simple API**: Easy to use and understand
-- **Efficient Storage**: Optimized for vector storage and retrieval
-- **No External Dependencies**: Doesn't require external services or API keys (except OpenAI for enhanced responses)
-
-## Troubleshooting
-
-- **ChromaDB Connection Issues**: Make sure you've run the `data_processor.py` script first
-- **No Results**: Try different queries or adjust the number of papers to retrieve
-- **Slow Performance**: Try reducing the number of papers to retrieve or using a smaller embedding model
+- **Response Types**: You can add new response types in
