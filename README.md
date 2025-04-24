@@ -1,5 +1,11 @@
 # Literature Review Assistant with ChromaDB
 
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![ChromaDB](https://img.shields.io/badge/ChromaDB-0.4.22-orange.svg)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.32.0-red.svg)
+![OpenAI](https://img.shields.io/badge/OpenAI-Optional-green.svg)
+![RAG](https://img.shields.io/badge/Architecture-RAG-purple.svg)
+
 This project implements a Retrieval-Augmented Generation (RAG) system for academic research, using ChromaDB as the external vector database. The system helps researchers search, retrieve, and summarize academic papers based on natural language queries.
 
 ## Features
@@ -24,7 +30,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system for academ
 
 2. Install the required packages:
    ```
-   pip install -r chroma_requirements.txt
+   pip install -r requirements.txt
    ```
 
 3. (Optional) Create a `.env` file with your OpenAI API key:
@@ -36,7 +42,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system for academ
 
 1. First, run the data processor to download and index papers:
    ```
-   python chroma_data_processor.py
+   python data_processor.py
    ```
    This will:
    - Download paper abstracts from arXiv or create sample data if download fails
@@ -45,7 +51,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system for academ
 
 2. Run the Streamlit application:
    ```
-   streamlit run chroma_app.py
+   streamlit run app.py
    ```
    The application will be available at http://localhost:8501
 
@@ -67,24 +73,26 @@ This implementation follows a standard RAG architecture:
 ## Technologies Used
 
 - **ChromaDB**: Open-source vector database for storing and retrieving embeddings
-- **Sentence Transformers**: For generating high-quality vector embeddings
 - **Streamlit**: For the user interface
 - **OpenAI API** (optional): For generating higher quality responses
+- **Pandas & NumPy**: For data processing and manipulation
+- **Requests**: For downloading papers from arXiv
+- **Python-dotenv**: For environment variable management
 
 ## Project Structure
 
-- `chroma_requirements.txt`: Required Python packages
-- `chroma_data_processor.py`: Script to download and index papers in ChromaDB
-- `chroma_rag_engine.py`: Core RAG functionality using ChromaDB
-- `chroma_app.py`: Streamlit application for the user interface
+- `requirements.txt`: Required Python packages
+- `data_processor.py`: Script to download and index papers in ChromaDB
+- `rag_engine.py`: Core RAG functionality using ChromaDB
+- `app.py`: Streamlit application for the user interface
 - `data/chroma_db/`: Directory where ChromaDB stores the vector database
 - `data/papers.csv`: CSV file with downloaded paper metadata
 
 ## Customization
 
-- **Model Selection**: You can modify the embedding model in `chroma_data_processor.py` and `chroma_rag_engine.py`
 - **Paper Sources**: You can extend the `download_arxiv_dataset` function to include other sources
 - **Response Types**: You can add new response types in the `generate_response` function
+- **UI Customization**: Modify the Streamlit app to change the user interface
 
 ## Advantages of Using ChromaDB
 
@@ -96,6 +104,6 @@ This implementation follows a standard RAG architecture:
 
 ## Troubleshooting
 
-- **ChromaDB Connection Issues**: Make sure you've run the `chroma_data_processor.py` script first
+- **ChromaDB Connection Issues**: Make sure you've run the `data_processor.py` script first
 - **No Results**: Try different queries or adjust the number of papers to retrieve
 - **Slow Performance**: Try reducing the number of papers to retrieve or using a smaller embedding model
