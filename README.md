@@ -85,7 +85,7 @@ graph TD
 
 1. Clone this repository:
    ```
-   git clone https://github.com/deepakrajaR/literature-review-assistant.git
+   git clone https://github.com/deepakrajaR/literature-review-rag.git
    cd literature-review-assistant
    ```
 
