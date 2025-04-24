@@ -8,7 +8,7 @@
 
 This project implements a Retrieval-Augmented Generation (RAG) system for academic research, using ChromaDB as the external vector database. The system helps researchers search, retrieve, and summarize academic papers based on natural language queries.
 
-## Architectural Digram
+
 ## Architecture
 
 ```mermaid
@@ -40,19 +40,6 @@ graph TD
     
     L -.-> O[arXiv API / Sample Data]
     G -.-> P[OpenAI API / Template Responses]
-## Features
-
-- **Semantic Search**: Find relevant papers based on natural language queries
-- **AI-Generated Insights**: Get summaries, comparisons, and research suggestions
-- **External Vector Database**: Uses ChromaDB for efficient vector storage and retrieval
-- **User-Friendly Interface**: Intuitive Streamlit interface for easy interaction
-
-## Requirements
-
-- Python 3.9+
-- OpenAI API key (optional, for enhanced response generation)
-
-## Installation
 
 1. Clone this repository:
    ```
