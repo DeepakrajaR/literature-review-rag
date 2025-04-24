@@ -8,6 +8,38 @@
 
 This project implements a Retrieval-Augmented Generation (RAG) system for academic research, using ChromaDB as the external vector database. The system helps researchers search, retrieve, and summarize academic papers based on natural language queries.
 
+## Architectural Digram
+## Architecture
+
+```mermaid
+graph TD
+    subgraph User_Interface
+        A[Streamlit App] --> B[Query Processing]
+        A --> C[Results Display]
+        A --> D[Settings Controls]
+    end
+    
+    subgraph RAG_Engine
+        B --> E[Query Embedding]
+        E --> F[Vector Search]
+        F --> G[Response Generation]
+    end
+    
+    subgraph Vector_Database
+        F --> H[ChromaDB]
+        H --> I[Document Embeddings]
+        H --> J[Metadata Storage]
+    end
+    
+    subgraph Data_Processing
+        K[Data Processor] --> L[Document Acquisition]
+        L --> M[Text Preprocessing]
+        M --> N[Embedding Generation]
+        N --> I
+    end
+    
+    L -.-> O[arXiv API / Sample Data]
+    G -.-> P[OpenAI API / Template Responses]
 ## Features
 
 - **Semantic Search**: Find relevant papers based on natural language queries
