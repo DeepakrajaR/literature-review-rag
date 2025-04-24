@@ -24,7 +24,7 @@ This project implements a Retrieval-Augmented Generation (RAG) system for academ
 
 1. Clone this repository:
    ```
-   git clone https:/github.com/deepakrajaR/literature-review-rag
+   git clone https://github.com/deepakrajaR/literature-review-rag
    cd literature-review-assistant
    ```
 
