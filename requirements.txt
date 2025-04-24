@@ -7,4 +7,4 @@ numpy==1.26.2
 tqdm==4.66.1
 openai==1.13.3
 chromadb==0.4.22
-pysqlite3-binary
+pysqlite3-binary==0.5.1
